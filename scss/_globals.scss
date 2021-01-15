@@ -1,0 +1,143 @@
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*,*::before,*::after{
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.3;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+}
+
+p {
+    margin: 0;
+}
+
+.btn{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    color: chartreuse;
+    border:1px solid chartreuse;
+    outline: 0;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+.btn:hover{
+    color: white;
+    border: 1px solid white;
+    transition: 200ms ease-in-out;
+}
+
+button:active {
+    outline: 0;
+}
+
+.editor {
+    margin: auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    height: 100%;
+    &-wrapper{
+        border: 1px solid black;
+        background-color: #213040;
+        position: relative;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    &-side-bar{
+        height: 100%;
+        border: 1px solid black;
+        background-color: #213040;
+    }
+    &-side-bar &-header{
+        border-bottom: 1px solid whitesmoke;
+    }
+    &-header{
+        margin: 5px;
+    }
+    &-header li {
+        color: whitesmoke;
+    }
+    &-side-bar-list{
+        padding: 0;
+        display: flex;
+        list-style: none;
+        margin: 0;
+    }
+    &-side-bar-list li:not(:last-child){
+        margin-right: 5px;
+    }
+    &-body {
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+    &-console {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    &-console &-header {
+        margin-left: 10px;
+    }
+    &-console-body{
+        position: relative;
+        border: 1px solid #474747;
+        margin: 10px;
+        height: 100%;
+        padding: 10px;
+    }
+    &-side-bar &-header nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.log--default {
+    color: #fff;
+}
+
+.log--string {
+    color: #48BF0A;
+}
+
+.log--number {
+    color: #48BF0A;
+}
+
+.log--boolean {
+    color: blue;
+}
+
+.log--undefined {
+    color: grey;
+}
+
+.log--error {
+    color: red;
+}
+
+.log--object {
+    color: darkcyan;
+}
+
+.log--array {
+    color: #4fb8e8;
+}
+
+.log--function {
+    color: yellow;
+}
