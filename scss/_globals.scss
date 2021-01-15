@@ -107,37 +107,37 @@ button:active {
 }
 
 .log--default {
-    color: #fff;
+    color: $white;
 }
 
 .log--string {
-    color: #48BF0A;
+    color: $limegreen;
 }
 
 .log--number {
-    color: #48BF0A;
+    color: $limegreen;
 }
 
 .log--boolean {
-    color: blue;
+    color: $blue;
 }
 
 .log--undefined {
-    color: grey;
+    color: $grey;
 }
 
 .log--error {
-    color: red;
+    color: $red;
 }
 
 .log--object {
-    color: darkcyan;
+    color: $darkcyan;
 }
 
 .log--array {
-    color: #4fb8e8;
+    color: $softblue;
 }
 
 .log--function {
-    color: yellow;
+    color: $yellow;
 }
