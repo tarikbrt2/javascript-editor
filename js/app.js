@@ -71,6 +71,7 @@ addFile.addEventListener("click", () => {
 })
 
 function printToConsole() {
+    consoleLogList.innerHTML = "";
     consoleMessages.forEach(log => {
         const newLogItem = document.createElement('li');
         const newLogText = document.createElement('pre');
