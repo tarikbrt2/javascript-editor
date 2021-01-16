@@ -45,7 +45,7 @@ let console = (function (oldConsole) {
                 class: `log log--default`
             });
 
-            oldConsole.log(consoleMessages);
+            //oldConsole.log(consoleMessages);
         },
         logSingleArgument: function (logItem) {
             oldConsole.log(logItem);
@@ -54,7 +54,7 @@ let console = (function (oldConsole) {
                 class: `log log--${this.getType(logItem)}`
             });
 
-            oldConsole.log(consoleMessages);
+            //oldConsole.log(consoleMessages);
         },
         log: function (text) {
             let argsArray = Array.from(arguments);

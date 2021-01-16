@@ -152,6 +152,17 @@ button:active {
   color: whitesmoke;
 }
 
+.editor-file p {
+  color: whitesmoke;
+  margin-left: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.editor-file p:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .log--default {
   color: #fff;
 }
