@@ -5,7 +5,9 @@ const fileName = document.getElementById("editor-file-name");
 const addFile = document.getElementById("editor-add-file");
 const filesDiv = document.getElementById("files");
 let filesQuery = document.querySelectorAll(".editor-file");
+let headerFilesQuery = document.querySelectorAll(".file-name");
 const fileList = document.getElementsByClassName("editor-file");
+const headerFileList = document.querySelector(".file-list");
 
 const defaultCode = "console.log(\"Hello world\")";
 let consoleMessages = [];
@@ -22,17 +24,39 @@ editor.setOptions({
 })
 editor.setValue(defaultCode);
 
+//dragging
+const dragArea = document.querySelector(".file-list");
+new Sortable(dragArea, {
+    animation: 350
+});
+
 // Event 
 filesDiv.addEventListener("DOMNodeInserted", () => {
     filesQuery =  document.querySelectorAll(".editor-file");
     filesQuery.forEach((elem, idx) => {
         elem.onclick = function () {
             files[browsingIndex].code = editor.getValue();
-            console.log(files[browsingIndex].code);
+            //console.log(files[browsingIndex].code);
+            addFileNameHeader(browsingIndex);
             browsingIndex = idx;
             editor.setValue(files[idx].code);
             fileName.value = files[idx].name;
             consoleMessages = [];
+
+        };
+    });
+})
+
+headerFileList.addEventListener("DOMNodeInserted", () => {
+    headerFilesQuery =  document.querySelectorAll(".file-name");
+    headerFilesQuery.forEach((elem) => {
+        elem.onclick = function () {
+            files[browsingIndex].code = editor.getValue();
+            browsingIndex = elem.id;
+            editor.setValue(files[browsingIndex].code);
+            fileName.value = files[browsingIndex].name;
+            consoleMessages = [];
+
         };
     });
 })
@@ -44,6 +68,8 @@ editor.session.on("change", () => {
 
 // dodavanje novog fajla prilikom ucitavanja DOM-a
 addFileFunction("untitled.js");
+addFileNameHeader(browsingIndex);
+
 
 saveButton.addEventListener("click", () => {
     let editor_code = editor.getValue();
@@ -75,38 +101,11 @@ fileName.addEventListener("change", () => {
     let file_name_p = file_names[browsingIndex].firstElementChild;
     file_name_p.innerText = fileName.value;
     files[browsingIndex].name = fileName.value;
+    let ul = document.getElementsByClassName("file-list")[0];
+    const files_name_header = ul.children;
+    for(let i = 0; i < files_name_header.length; i++){
+        if(files_name_header[i].id == browsingIndex){
+            files_name_header[i].innerText = fileName.value;
+        }
+    }
 })
-
-function printToConsole() {
-    consoleLogList.innerHTML = "";
-    consoleMessages.forEach(log => {
-        const newLogItem = document.createElement('li');
-        const newLogText = document.createElement('pre');
-
-        newLogItem.style.listStyle = "none";
-
-        newLogText.className = log.class;
-        newLogText.textContent = `> ${log.message}`;
-
-        newLogItem.appendChild(newLogText);
-
-        consoleLogList.appendChild(newLogItem);
-    })
-    consoleMessages = [];
-}
-
-function addFileFunction(filename){
-    let elem = document.createElement("div");
-    elem.classList.add("editor-file");
-    let p = document.createElement("p");
-    files.push({
-        code: defaultCode,
-        name: filename
-    });
-    p.id = files.length - 1;
-    p.innerText = filename;
-    elem.appendChild(p);
-    filesDiv.appendChild(elem);
-    browsingIndex = p.id;
-    editor.setValue(defaultCode);
-}

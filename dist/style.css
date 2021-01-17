@@ -50,6 +50,41 @@ button:active {
   outline: 0;
 }
 
+.header {
+  background-color: black;
+  border-bottom: 1px solid white;
+  outline: none;
+}
+
+.file-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style: none;
+  margin: 3px;
+  padding: 0;
+}
+
+.file-list .file-name {
+  color: white;
+  padding: 3px;
+  font-size: 14px;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.file-list .file-name:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.file-list .file-name:not(:last-child) {
+  margin-right: 10px;
+}
+
 .editor {
   margin: auto;
   position: relative;
@@ -177,6 +212,8 @@ button:active {
   background-color: transparent;
   border: none;
   color: whitesmoke;
+  font-weight: 400;
+  font-size: 18px;
 }
 
 .editor-file p {
@@ -188,6 +225,17 @@ button:active {
 
 .editor-file p:hover {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+.editor-file-names {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
 }
 
 .log--default {

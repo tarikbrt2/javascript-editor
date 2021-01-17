@@ -47,6 +47,35 @@ button:active {
     outline: 0;
 }
 
+.header{
+    background-color: black;
+    border-bottom: 1px solid white;
+    outline: none;
+}
+
+.file-list{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 3px;
+    padding: 0;
+}
+
+.file-list .file-name{
+    color: white;
+    padding: 3px;
+    font-size: 14px;
+    cursor: grab;
+}
+
+.file-list .file-name:hover{
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.file-list .file-name:not(:last-child) {
+    margin-right: 10px;
+}
+
 .editor {
     margin: auto;
     position: relative;
@@ -128,6 +157,8 @@ button:active {
         background-color: transparent;
         border: none;
         color: whitesmoke;
+        font-weight: 400;
+        font-size: 18px;
     }
     &-file p{
         color: whitesmoke;
@@ -137,6 +168,11 @@ button:active {
     }
     &-file p:hover{
         background-color: rgba(255, 255, 255, 0.1);
+    }
+    &-file-names{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
     }
 }
 
