@@ -32,6 +32,7 @@ filesDiv.addEventListener("DOMNodeInserted", () => {
             browsingIndex = idx;
             editor.setValue(files[idx].code);
             fileName.value = files[idx].name;
+            consoleMessages = [];
         };
     });
 })
