@@ -72,30 +72,15 @@ button:active {
 .file-list .file-name {
   color: white;
   padding: 3px;
+  margin: 0;
   font-size: 14px;
-  cursor: -webkit-grab;
-  cursor: grab;
+  cursor: move;
+  border-right: 2px solid blanchedalmond;
+  padding: 0px 10px;
 }
 
 .file-list .file-name:hover {
   background-color: rgba(255, 255, 255, 0.4);
-}
-
-.file-list .file-name:not(:last-child) {
-  margin-right: 10px;
-}
-
-.file-list div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.file-list div span {
-  color: white;
 }
 
 .active {
