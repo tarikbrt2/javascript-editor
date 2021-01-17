@@ -76,6 +76,19 @@ button:active {
     margin-right: 10px;
 }
 
+.file-list div{
+    display: flex;
+    align-items: center;
+}
+
+.file-list div span{
+    color: white;
+}
+
+.active {
+    color: yellow;
+}
+
 .editor {
     margin: auto;
     position: relative;

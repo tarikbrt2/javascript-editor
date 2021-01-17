@@ -35,14 +35,18 @@ filesDiv.addEventListener("DOMNodeInserted", () => {
     filesQuery =  document.querySelectorAll(".editor-file");
     filesQuery.forEach((elem, idx) => {
         elem.onclick = function () {
-            files[browsingIndex].code = editor.getValue();
-            //console.log(files[browsingIndex].code);
-            addFileNameHeader(browsingIndex);
-            browsingIndex = idx;
-            editor.setValue(files[idx].code);
-            fileName.value = files[idx].name;
-            consoleMessages = [];
-
+            if(idx !== browsingIndex){
+                files[browsingIndex].code = editor.getValue();
+                browsingIndex = idx;
+                addFileNameHeader(browsingIndex);
+                headerFilesQuery.forEach((new_elem) => {
+                    new_elem.style.color = "white";
+                    if(new_elem.id == idx) new_elem.style.color = "yellow";
+                })
+                editor.setValue(files[idx].code);
+                fileName.value = files[idx].name;
+                consoleMessages = [];
+            }
         };
     });
 })
@@ -51,12 +55,17 @@ headerFileList.addEventListener("DOMNodeInserted", () => {
     headerFilesQuery =  document.querySelectorAll(".file-name");
     headerFilesQuery.forEach((elem) => {
         elem.onclick = function () {
-            files[browsingIndex].code = editor.getValue();
-            browsingIndex = elem.id;
-            editor.setValue(files[browsingIndex].code);
-            fileName.value = files[browsingIndex].name;
-            consoleMessages = [];
-
+            if(browsingIndex !== elem.id){
+                headerFilesQuery.forEach((new_elem) => {
+                    new_elem.style.color = "white";
+                })
+                files[browsingIndex].code = editor.getValue();
+                browsingIndex = elem.id;
+                editor.setValue(files[browsingIndex].code);
+                fileName.value = files[browsingIndex].name;
+                consoleMessages = [];
+                elem.style.color = "yellow";
+            }
         };
     });
 })

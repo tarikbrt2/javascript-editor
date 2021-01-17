@@ -85,6 +85,23 @@ button:active {
   margin-right: 10px;
 }
 
+.file-list div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.file-list div span {
+  color: white;
+}
+
+.active {
+  color: yellow;
+}
+
 .editor {
   margin: auto;
   position: relative;
