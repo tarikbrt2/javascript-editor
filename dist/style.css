@@ -60,19 +60,46 @@ button:active {
   height: 100%;
 }
 
+@media (max-width: 639px) {
+  .editor {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
 .editor-wrapper {
   background-color: #213040;
   position: relative;
   height: 100%;
+  width: 100%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
 }
 
+@media (max-width: 639px) {
+  .editor-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .editor-side-bar {
   height: 100%;
   background-color: #213040;
+}
+
+@media (max-width: 639px) {
+  .editor-side-bar {
+    display: none;
+  }
 }
 
 .editor-side-bar .editor-header {
@@ -94,7 +121,6 @@ button:active {
 .editor-body {
   position: relative;
   height: 100%;
-  width: 100%;
 }
 
 .editor-console {
@@ -106,6 +132,7 @@ button:active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  height: 100%;
 }
 
 .editor-console .editor-header {

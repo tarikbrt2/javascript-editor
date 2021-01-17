@@ -26,7 +26,6 @@ editor.setValue(defaultCode);
 filesDiv.addEventListener("DOMNodeInserted", () => {
     filesQuery =  document.querySelectorAll(".editor-file");
     filesQuery.forEach((elem, idx) => {
-        //console.log(elem);
         elem.onclick = function () {
             files[browsingIndex].code = editor.getValue();
             console.log(files[browsingIndex].code);
@@ -68,6 +67,13 @@ runButton.addEventListener("click", () => {
 
 addFile.addEventListener("click", () => {
     addFileFunction("untitled.js");
+})
+
+fileName.addEventListener("change", () => {
+    let file_names = document.querySelectorAll(".editor-file");
+    let file_name_p = file_names[browsingIndex].firstElementChild;
+    file_name_p.innerText = fileName.value;
+    files[browsingIndex].name = fileName.value;
 })
 
 function printToConsole() {

@@ -53,16 +53,27 @@ button:active {
     display: grid;
     grid-template-columns: 1fr 7fr;
     height: 100%;
+    @include breakpoints-down(medium){
+        display: flex;
+    }
     &-wrapper{
         background-color: #213040;
         position: relative;
         height: 100%;
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        @include breakpoints-down(medium){
+            display: flex;
+            flex-direction: column;
+        }
     }
     &-side-bar{
         height: 100%;
         background-color: #213040;
+        @include breakpoints-down(medium){
+            display: none;
+        }
     }
     &-side-bar &-header{
         border-bottom: 1px solid whitesmoke;
@@ -79,12 +90,12 @@ button:active {
     &-body {
         position: relative;
         height: 100%;
-        width: 100%;
     }
     &-console {
         position: relative;
         display: flex;
         flex-direction: column;
+        height: 100%;
     }
     &-console &-header {
         margin-left: 10px;
