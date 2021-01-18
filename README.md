@@ -40,9 +40,9 @@ This is very simple Javascript IDE.
 ### Built With
 
 Technologies I used for making this project:
-* [HTML5]
-* [SASS]
-* [Javascript]
+* HTML5
+* SASS
+* Javascript
 * [Ace.js](https://ace.c9.io)
 
 
